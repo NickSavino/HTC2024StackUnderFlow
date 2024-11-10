@@ -1,0 +1,6 @@
+Changed database context to 'master'.
+Nonqualified transactions are being rolled back. Estimated rollback completion: 0%.
+Nonqualified transactions are being rolled back. Estimated rollback completion: 100%.
+Database HTC_DB dropped.
+Database HTC_DB created.
+Changed database context to 'HTC_DB'.
