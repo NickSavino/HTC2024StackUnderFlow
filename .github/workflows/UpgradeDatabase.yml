@@ -16,7 +16,6 @@ jobs:
 
     - name: Run SQL Migration
       run: |
-        cd ./Database
         ./databaseUpgrade.Prod.bat
       env:
         SERVER_NAME: ${{ secrets.AZURE_SQL_SERVER }}
