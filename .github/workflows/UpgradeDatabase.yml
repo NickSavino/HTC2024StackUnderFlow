@@ -16,7 +16,8 @@ jobs:
 
     - name: Run SQL Migration
       run: |
-        ./Database/databaseUpgrade.Prod.bat || echo "Batch script failed" >> ./Database/Upgrade/sql_scripts_log.txt
+        cd ./Database
+        ./databaseUpgrade.Prod.bat
       env:
         SERVER_NAME: ${{ secrets.AZURE_SQL_SERVER }}
         DATABASE_NAME: ${{ secrets.AZURE_SQL_DATABASE }}
@@ -32,6 +33,10 @@ jobs:
           exit 1
         }
       shell: pwsh
+
+    - name: List Files for Debugging
+      run: dir /s ./Database/
+      shell: cmd
 
     - name: Upload Logs
       if: failure()

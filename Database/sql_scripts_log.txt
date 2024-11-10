@@ -1,8 +1,0 @@
-Changed database context to 'master'.
-Database HTC_DB dropped.
-Database HTC_DB created.
-Changed database context to 'HTC_DB'.
-Changed database context to 'master'.
-Database HTC_DB dropped.
-Database HTC_DB created.
-Changed database context to 'HTC_DB'.
