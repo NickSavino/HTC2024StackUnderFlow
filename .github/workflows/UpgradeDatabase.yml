@@ -16,6 +16,7 @@ jobs:
 
     - name: Run SQL Migration
       run: |
+        cd ./Database
         ./databaseUpgrade.Prod.bat
       env:
         SERVER_NAME: ${{ secrets.AZURE_SQL_SERVER }}
@@ -25,7 +26,7 @@ jobs:
 
     - name: Verify Log File
       run: |
-        if (Test-Path ./Database/Upgrade/sql_scripts_log.txt) {
+        if (Test-Path ./Database/sql_scripts_log.txt) {
           Write-Host "Log file exists."
         } else {
           Write-Host "Log file not found."
