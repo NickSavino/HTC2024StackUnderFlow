@@ -22,15 +22,19 @@ jobs:
         set USERNAME=${{ secrets.AZURE_SQL_USER }}
         set PASSWORD=${{ secrets.AZURE_SQL_PASSWORD }}
 
+    - name: List Files in Database Directory
+      run: |
+        dir ./Database
+
     - name: Run SQL Migration
       run: |
-        cd Database
-        databaseUpgrade.Prod.bat
+        ./Database/databaseUpgrade.Prod.bat
       env:
         SERVER_NAME: ${{ secrets.AZURE_SQL_SERVER }}
         DATABASE_NAME: ${{ secrets.AZURE_SQL_DATABASE }}
         USERNAME: ${{ secrets.AZURE_SQL_USER }}
         PASSWORD: ${{ secrets.AZURE_SQL_PASSWORD }}
+
 
     - name: Upload Logs
       uses: actions/upload-artifact@v3
