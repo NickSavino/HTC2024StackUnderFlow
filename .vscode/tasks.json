@@ -12,7 +12,7 @@
 			"type": "process",
 			"problemMatcher": "$msCompile",
 			"options": {
-				"cwd": "${workspaceFolder}/Backend\\AzureFunctions"
+				"cwd": "${workspaceFolder}/Backend"
 			}
 		},
 		{
@@ -31,7 +31,7 @@
 			},
 			"problemMatcher": "$msCompile",
 			"options": {
-				"cwd": "${workspaceFolder}/Backend\\AzureFunctions"
+				"cwd": "${workspaceFolder}/Backend"
 			}
 		},
 		{
@@ -47,7 +47,7 @@
 			"type": "process",
 			"problemMatcher": "$msCompile",
 			"options": {
-				"cwd": "${workspaceFolder}/Backend\\AzureFunctions"
+				"cwd": "${workspaceFolder}/Backend"
 			}
 		},
 		{
