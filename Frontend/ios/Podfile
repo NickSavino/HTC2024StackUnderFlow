@@ -48,6 +48,9 @@ target 'Frontend' do
     :app_path => "#{Pod::Config.instance.installation_root}/..",
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
+  pre_install do |installer|
+    $RNMapboxMaps.pre_install(installer)
+  end
 
   post_install do |installer|
     react_native_post_install(
@@ -56,6 +59,7 @@ target 'Frontend' do
       :mac_catalyst_enabled => false,
       :ccache_enabled => podfile_properties['apple.ccacheEnabled'] == 'true',
     )
+    $RNMapboxMaps.post_install(installer)
 
     # This is necessary for Xcode 14, because it signs resource bundles by default
     # when building for devices.
