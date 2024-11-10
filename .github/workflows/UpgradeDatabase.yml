@@ -16,7 +16,7 @@ jobs:
 
     - name: Run SQL Migration
       run: |
-        ./Database/databaseUpgrade.Prod.bat || echo "Batch script failed" >> ./Database/sql_scripts_log.txt
+        ./Database/databaseUpgrade.Prod.bat || echo "Batch script failed" >> ./Database/Upgrade/sql_scripts_log.txt
       env:
         SERVER_NAME: ${{ secrets.AZURE_SQL_SERVER }}
         DATABASE_NAME: ${{ secrets.AZURE_SQL_DATABASE }}
@@ -26,18 +26,17 @@ jobs:
 
     - name: Verify Log File
       run: |
-        if exist ./Database/sql_scripts_log.txt (
-          echo Log file exists: ./Database/sql_scripts_log.txt
-        ) else (
-          echo Log file not found
+        if (Test-Path ./Database/Upgrade/sql_scripts_log.txt) {
+          Write-Host "Log file exists."
+        } else {
+          Write-Host "Log file not found."
           exit 1
-        )
+        }
+      shell: pwsh
 
     - name: Upload Logs
+      if: failure()
       uses: actions/upload-artifact@v3
       with:
         name: SQLMigrationLogs
-        path: |
-          ./Database/sql_scripts_log.txt
-          ./Database/Upgrade/sql_scripts_log.txt
-          ./sql_scripts_log.txt
+        path: ./Database/Upgrade/sql_scripts_log.txt
