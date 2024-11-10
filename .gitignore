@@ -482,9 +482,3 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
-
-/Backend/.vs/Backend
-Backend/obj/
-Backend/obj/Backend.csproj.nuget.dgspec.json
-Backend/obj/Backend.csproj.nuget.g.props
-/Backend/
