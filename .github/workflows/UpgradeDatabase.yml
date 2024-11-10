@@ -34,8 +34,15 @@ jobs:
         }
       shell: pwsh
 
+    - name: Print Working Directory
+      run: pwd
+
+    - name: List Root Directory
+      run: dir /s
+      shell: cmd
+
     - name: List Files for Debugging
-      run: dir /s ./Database/
+      run: dir /s "Database"
       shell: cmd
 
     - name: Upload Logs

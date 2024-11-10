@@ -47,7 +47,7 @@ REM Run the first script to create the database
 echo ================================================
 echo Running script: 1.CreateDatabase.sql
 echo ================================================
-sqlcmd -S %SERVER_NAME% -U %USERNAME% -P %PASSWORD% -d master -i "%SCRIPTS_DIR%\1.CreateDatabase.sql" -t 120 | tee -a "%LOG_FILE%"
+sqlcmd -S %SERVER_NAME% -U %USERNAME% -P %PASSWORD% -d %DATABASE_NAME% -i "%SCRIPTS_DIR%\1.CreateDatabase.sql" -t 120 | tee -a "%LOG_FILE%"
 
 
 REM Check for errors
