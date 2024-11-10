@@ -484,3 +484,4 @@ $RECYCLE.BIN/
 *.swp
 
 Backend/local.settings.json
+Database/sql_scripts_dev_log.txt
