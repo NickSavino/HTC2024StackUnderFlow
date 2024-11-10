@@ -8,7 +8,8 @@ export default function Index() {
   return (
     <View style={styles.page}>
         <View style={styles.container}>
-          <Mapbox.MapView style={styles.map}/>
+          <Mapbox.MapView style={styles.map}
+          styleURL={Mapbox.StyleURL.Dark}/>
         </View>
       </View>
   );
