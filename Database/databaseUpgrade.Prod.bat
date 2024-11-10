@@ -7,7 +7,7 @@ set DATABASE_NAME=%DATABASE_NAME%
 set USERNAME=%USERNAME%
 set PASSWORD=%PASSWORD%
 set SCRIPTS_DIR=%CD%\Database\Upgrade
-set LOG_FILE=%SCRIPTS_DIR%\sql_scripts_log.txt
+set LOG_FILE=%CD%\Database\sql_scripts_log.txt
 
 REM Clear the screen
 cls
