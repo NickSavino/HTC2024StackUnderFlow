@@ -484,3 +484,4 @@ $RECYCLE.BIN/
 *.swp
 
 Frontend/android
+Backend/local.settings.json
