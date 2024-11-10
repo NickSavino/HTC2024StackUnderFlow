@@ -485,3 +485,4 @@ $RECYCLE.BIN/
 
 Backend/local.settings.json
 Database/sql_scripts_dev_log.txt
+Database/sql_scripts_log.txt
