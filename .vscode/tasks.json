@@ -64,14 +64,14 @@
 			"dependsOn": "clean release (functions)",
 			"problemMatcher": "$msCompile",
 			"options": {
-				"cwd": "${workspaceFolder}/Backend\\AzureFunctions"
+				"cwd": "${workspaceFolder}/Backend"
 			}
 		},
 		{
 			"type": "func",
 			"dependsOn": "build (functions)",
 			"options": {
-				"cwd": "${workspaceFolder}/Backend\\AzureFunctions/bin/Debug/net8.0"
+				"cwd": "${workspaceFolder}/Backend/bin/Debug/net8.0"
 			},
 			"command": "host start",
 			"isBackground": true,
