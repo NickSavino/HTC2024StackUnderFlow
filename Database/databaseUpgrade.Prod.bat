@@ -9,6 +9,11 @@ set PASSWORD=%PASSWORD%
 set SCRIPTS_DIR=%CD%\Database\Upgrade
 set LOG_FILE=%CD%\Database\sql_scripts_log.txt
 
+echo SERVER_NAME=%SERVER_NAME% >> "%LOG_FILE%"
+echo DATABASE_NAME=%DATABASE_NAME% >> "%LOG_FILE%"
+echo USERNAME=%USERNAME% >> "%LOG_FILE%"
+echo PASSWORD=%PASSWORD% >> "%LOG_FILE%"
+
 REM Clear the screen
 cls
 
@@ -42,7 +47,8 @@ REM Run the first script to create the database
 echo ================================================
 echo Running script: 1.CreateDatabase.sql
 echo ================================================
-sqlcmd -S %SERVER_NAME% -U %USERNAME% -P %PASSWORD% -d master -i "%SCRIPTS_DIR%\1.CreateDatabase.sql" -t 120 >> "%LOG_FILE%" 2>&1
+sqlcmd -S %SERVER_NAME% -U %USERNAME% -P %PASSWORD% -d master -i "%SCRIPTS_DIR%\1.CreateDatabase.sql" -t 120 | tee -a "%LOG_FILE%"
+
 
 REM Check for errors
 if %errorlevel% neq 0 (
@@ -59,7 +65,8 @@ for %%f in ("%SCRIPTS_DIR%\2*.sql" "%SCRIPTS_DIR%\3*.sql" "%SCRIPTS_DIR%\4*.sql"
     echo ================================================
     echo Running script: %%~nxf
     echo ================================================
-    sqlcmd -S %SERVER_NAME% -U %USERNAME% -P %PASSWORD% -d %DATABASE_NAME% -i "%%~f" -t 120 >> "%LOG_FILE%" 2>&1
+    sqlcmd -S %SERVER_NAME% -U %USERNAME% -P %PASSWORD% -d master -i "%SCRIPTS_DIR%\1.CreateDatabase.sql" -t 120 | tee -a "%LOG_FILE%"
+
 
     REM Check for errors
     if %errorlevel% neq 0 (
