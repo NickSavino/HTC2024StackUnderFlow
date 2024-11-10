@@ -6,7 +6,7 @@ set SERVER_NAME=%SERVER_NAME%
 set DATABASE_NAME=%DATABASE_NAME%
 set USERNAME=%USERNAME%
 set PASSWORD=%PASSWORD%
-set SCRIPTS_DIR=%CD%\Database\Upgrade
+set SCRIPTS_DIR=%CD%\Upgrade
 set LOG_FILE=%CD%\Database\sql_scripts_log.txt
 
 echo SERVER_NAME=%SERVER_NAME% >> "%LOG_FILE%"
