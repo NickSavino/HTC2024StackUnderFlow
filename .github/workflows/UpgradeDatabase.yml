@@ -22,7 +22,6 @@ jobs:
         DATABASE_NAME: ${{ secrets.AZURE_SQL_DATABASE }}
         USERNAME: ${{ secrets.AZURE_SQL_USER }}
         PASSWORD: ${{ secrets.AZURE_SQL_PASSWORD }}
-      continue-on-error: true
 
     - name: Verify Log File
       run: |
